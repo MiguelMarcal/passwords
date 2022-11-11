@@ -29,8 +29,8 @@ def decode_rot47(data):
                         decode.append(data[i])
         return ''.join(decode)
 
-print(encode_rot47(palavra)+ "   decoded")
-print(decode_rot47(encode_rot47(palavra)) + "   encoded")
+print(encode_rot47(palavra))
+print(decode_rot47(encode_rot47(palavra)))
 
 
 
