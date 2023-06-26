@@ -1,5 +1,4 @@
-function myFunction() {
-  // Get the text field
+function copyPassword() {
   var password = document.getElementById("password").textContent;
   navigator.clipboard.writeText(password);
 }
@@ -14,23 +13,22 @@ function generatePassword() {
   if (text.length < 7) {
     putInP("password < 7, try to use a string of considerable size...");
   } else {
-    console.log(encrypt(text, BigInt(salt)));
-    putInP(encrypt(text, BigInt(salt)));
+    console.log(encryptUsingSalt(text, BigInt(salt)));
+    putInP(encryptUsingSalt(text, BigInt(salt)));
   }
 }
 
-function encrypt(text, salt) {
+function encryptUsingSalt(text, salt) {
   let password = "";
-
   for (let i = 0; i < text.length; i++) {
     const j = BigInt(text.charCodeAt(i));
     if (j >= 33n && j <= 126n) {
       const newChar = String.fromCharCode(
         Number(33n + ((j + BigInt(i) + BigInt(salt)) % 94n))
       );
-      password += newChar; // append the transformed character to the password
+      password += newChar;
     } else {
-      password += text[i]; // append the original character to the password
+      password += text[i];
     }
   }
 

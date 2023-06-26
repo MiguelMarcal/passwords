@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      body {
+        background-color: #000;
+        color: #fff;
+      }
+
+      .container {
+        margin-top: 50px;
+      }
+
+      .form-control {
+        background-color: #fff;
+        color: #000;
+      }
+
+      table {
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>
+        The current website is meant to be used as a password generator. The
+        user enters a Password (String) and a Salt (Integer), and a simple
+        encryption algorithm is applied. The string size must be greater than 7,
+        and the salt must be a number greater than 1 (47 will be used as a
+        default if the conditions are not met). Please note that this is a very
+        simple form of encryption, so it is recommended to use long and complex
+        words. Keep it safe.
+      </p>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Text to password"
+              id="input"
+            />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Salt"
+              id="inputSalt"
+            />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <button
+            class="btn btn-primary btn-block"
+            onclick="generatePassword()"
+          >
+            Generate Password
+          </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <p id="password"></p>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-secondary btn-block" onclick="copyPassword()">
+            Copy Password
+          </button>
+        </div>
+      </div>
+
+      <table class="table table-striped table-dark mt-4">
+        <thead>
+          <tr>
+            <th>String</th>
+            <th>Salt</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>34</td>
+            <td>/UOV .ZQ</td>
+          </tr>
+          <tr>
+            <td>johnDoeGmail</td>
+            <td>100</td>
+            <td>393:o=4u&gt;3&lt;@</td>
+          </tr>
+          <tr>
+            <td>johnDoeValorant</td>
+            <td>123</td>
+            <td>JPJQ&#40;TK=IUY]M[b</td>
+          </tr>
+          <tr>
+            <td>johnDoeGithub</td>
+            <td>1555</td>
+            <td>`f`g&gt;jaDgshvd</td>
+          </tr>
+          <tr>
+            <td>johnDoeGithub</td>
+            <td>12344</td>
+            <td>KQKR&#41;UL/R^SaO</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Your custom script -->
+    <script src="scripts.js"></script>
+  </body>
+</html>
